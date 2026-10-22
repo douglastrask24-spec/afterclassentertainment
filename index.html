@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="AfterClassAZ: college nights for ASU and GCU students in Phoenix. Join the Night One waitlist.">
+<meta property="og:title" content="AfterClassAZ">
+<meta property="og:description" content="College nights for ASU and GCU. Night One waitlist is open.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>AfterClassAZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Concept: "Class dismissed" — one night, from the bell to the ride home. Night One waitlist is open.
+   Brand kit: near-black, orange, gold; Bebas Neue headlines, Barlow Condensed body. */
+:root{
+  --ink:#080808;
+  --ink-2:#100f0e;
+  --ink-3:#1a1816;
+  --line:#26221f;
+  --line-2:#3a342f;
+  --bone:#f2ece4;
+  --muted:#988e84;
+  --dim:#857b71;
+  --heat:#FF6B1A;
+  --gold:#FF9A00;
+  --card-ink:#5b524a;
+  --card-rule:#cfc5ba;
+  --display:"Bebas Neue","Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --body:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font-family:var(--body);font-size:19px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-synthesis:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--ink)}
+/* static grain (no animation) */
+body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit}
+::selection{background:var(--heat);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.hot{color:var(--heat)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:.88;margin:0;text-transform:uppercase;text-wrap:balance;letter-spacing:.005em}
+
+/* waitlist banner — modeled on the Night One ticket */
+.waitbar{display:block;background:var(--heat);color:var(--ink);text-decoration:none;border-bottom:3px solid var(--ink)}
+.waitbar .wb{display:flex;align-items:center;gap:clamp(12px,2.4vw,28px);padding-block:10px}
+.wb-no{font-family:var(--display);font-size:34px;line-height:.9;padding-right:clamp(12px,2.4vw,28px);border-right:4px dotted var(--ink)}
+.wb-no small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;font-weight:600;line-height:1.4}
+.wb-main{display:flex;align-items:baseline;gap:6px 16px;flex-wrap:wrap;min-width:0;flex:1}
+.wb-title{font-family:var(--display);text-transform:uppercase;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:.01em}
+.wb-title em{font-style:normal;color:var(--bone)}
+.wb-sub{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.wb-code{width:70px;height:34px;flex:none;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px)}
+.wb-cta{flex:none;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bone);font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;border-radius:3px;transition:background .25s,color .25s}
+.wb-cta .arr{display:inline-block;transition:transform .3s var(--ease)}
+.waitbar:hover .wb-cta{background:var(--bone);color:var(--ink)}
+.waitbar:hover .wb-cta .arr{transform:translateX(5px)}
+@media (max-width:760px){.wb-code,.wb-sub{display:none}}
+@media (max-width:440px){.wb-no{display:none}.wb-cta{padding:10px 12px;font-size:13px}}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(8,8,8,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:12px}
+.wordmark{font-family:var(--display);font-size:28px;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;line-height:1}
+.wordmark span{color:var(--heat)}
+.links{display:flex;gap:4px;justify-content:center}
+.links a{text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:8px 12px;transition:color .2s}
+.links a:hover{color:var(--bone)}
+.nav-right{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.clock{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.clock b{color:var(--bone);font-weight:600}
+.nav-ig{display:inline-grid;place-items:center;width:40px;height:40px;flex:none;border:1px solid var(--line-2);border-radius:3px;color:var(--bone);transition:border-color .25s,color .25s}
+.nav-ig:hover{border-color:var(--heat);color:var(--heat)}
+.nav-ig svg{width:18px;height:18px}
+@media (max-width:960px){.links{display:none}.nav .wrap{grid-template-columns:1fr auto}}
+@media (max-width:520px){.clock{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--body);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border-radius:3px;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn .arr{display:inline-block;transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(5px)}
+.btn-hot{background:var(--heat);color:var(--ink)}
+.btn-hot:hover{background:var(--bone)}
+.btn-line{border-color:var(--line-2);color:var(--bone);background:transparent}
+.btn-line:hover{border-color:var(--bone)}
+.nav .btn{padding:10px 16px;font-size:15px}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(28px,5vw,64px) 40px;overflow:hidden;background:var(--heat);color:var(--ink)}
+.hero > .wrap,.hero > .strip{position:relative;z-index:1}
+.sky{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky::before{content:"";position:absolute;left:0;right:0;bottom:0;height:55%;background-image:linear-gradient(rgba(8,8,8,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(8,8,8,.1) 1px,transparent 1px);background-size:64px 32px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 70%);mask-image:linear-gradient(180deg,transparent,#000 70%)}
+.sun-wrap{position:absolute;left:clamp(-80px,4vw,90px);top:clamp(56px,7vw,110px);width:clamp(220px,46vw,720px);aspect-ratio:1;max-width:100%}
+.sun{width:100%;height:100%;border-radius:50%;background:linear-gradient(180deg,#ffc04a 0%,var(--gold) 28%,var(--heat) 62%,#e0400a 100%);-webkit-mask-image:linear-gradient(180deg,#000 0 50%,transparent 50% 53%,#000 53% 61%,transparent 61% 65%,#000 65% 71%,transparent 71% 76%,#000 76% 81%,transparent 81% 87%,#000 87% 90%,transparent 90%);mask-image:linear-gradient(180deg,#000 0 50%,transparent 50% 53%,#000 53% 61%,transparent 61% 65%,#000 65% 71%,transparent 71% 76%,#000 76% 81%,transparent 81% 87%,#000 87% 90%,transparent 90%);transform:translateY(22%);animation:sunrise 1.8s var(--ease) .1s forwards;opacity:.9}
+@keyframes sunrise{to{transform:translateY(0)}}
+.horizon{position:absolute;left:0;right:0;top:58%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,154,0,.55) 20%,rgba(255,154,0,.55) 80%,transparent)}
+@media (max-width:560px){.sun-wrap{width:210px;left:-36px;top:52px}.horizon{top:46%}}
+.hero-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);margin-bottom:clamp(16px,3vw,32px)}
+.hero-meta .dot{display:inline-block;width:7px;height:7px;background:var(--heat);border-radius:50%;margin-right:8px;animation:blink 1.6s infinite}
+.hero-meta a{text-decoration:none;color:var(--heat)}
+.hero-meta a:hover{color:var(--bone)}
+@keyframes blink{50%{opacity:.25}}
+.mark{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.8;font-size:clamp(108px,26vw,420px);letter-spacing:-.005em;margin:0;user-select:none}
+.mark .row{display:flex;overflow:hidden;padding-block:.02em}
+.mark .row.r2{justify-content:flex-end}
+.mark .ch{display:inline-block;transform:translateY(105%);animation:rise 1s var(--ease) forwards;animation-delay:calc(var(--i) * 55ms + 120ms);color:var(--bone)}
+.mark .ch.az{color:var(--heat)}
+@keyframes rise{to{transform:translateY(0)}}
+.hero-body{display:grid;grid-template-columns:1fr minmax(0,440px) auto;gap:clamp(24px,4vw,64px);align-items:end;margin-top:clamp(-140px,-9vw,-40px);position:relative}
+.hero-body p{margin:0;font-size:clamp(21px,1.8vw,24px);line-height:1.35;max-width:34ch;color:var(--bone)}
+.hero-body p em{font-style:normal;color:var(--heat)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.stamp{width:clamp(120px,13vw,170px);aspect-ratio:1;max-width:100%;position:relative;justify-self:end}
+.stamp svg{width:100%;height:100%}
+.stamp .core{position:absolute;inset:26%;border-radius:50%;background:var(--heat);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:clamp(30px,3.4vw,44px);line-height:.85;text-align:center}
+@media (max-width:900px){.hero-body{grid-template-columns:1fr auto;margin-top:24px}.hero-body .spacer{display:none}}
+@media (max-width:560px){.hero-body{grid-template-columns:1fr}.stamp{justify-self:start;order:-1}}
+/* bright orange hero, inked like the Night One graphic */
+.hero .hero-meta{color:rgba(8,8,8,.72)}
+.hero .hero-meta .dot{background:var(--ink)}
+.hero .hero-meta a{color:var(--ink);font-weight:600}
+.hero .hero-meta a:hover{color:var(--bone)}
+.hero .mark .ch{color:var(--ink)}
+.hero .mark .ch.az{color:var(--bone)}
+.hero .hero-body p{color:var(--ink)}
+.hero .hero-body p em{color:var(--ink);font-weight:700;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px;text-decoration-color:var(--bone)}
+.hero .btn-hot{background:var(--ink);color:var(--bone)}
+.hero .btn-hot:hover{background:var(--bone);color:var(--ink)}
+.hero .btn-line{border:2px solid var(--ink);color:var(--ink)}
+.hero .btn-line:hover{background:var(--ink);color:var(--bone)}
+.hero .stamp .core{background:var(--ink);color:var(--heat)}
+.hero .strip{background:var(--ink);color:var(--heat)}
+.hero .strip i{background:var(--bone)}
+
+/* strip — the one marquee */
+.strip{background:var(--heat);color:var(--ink);overflow:hidden;white-space:nowrap;transform:rotate(-1.2deg);margin:28px -2% 0;width:104%}
+.strip .track{display:inline-flex;animation:scroll 30s linear infinite;padding-block:14px;font-family:var(--display);font-size:clamp(28px,3.2vw,40px);text-transform:uppercase;line-height:1}
+.strip .track span{display:inline-flex;align-items:center;gap:36px;padding-right:36px}
+.strip i{width:10px;height:10px;background:var(--ink);transform:rotate(45deg);display:inline-block}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding-block:clamp(80px,10vw,140px)}
+.sec-top{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:clamp(40px,5vw,64px);align-items:start}
+.sec-top .mono{color:var(--heat);padding-top:12px}
+.sec-top h2{font-size:clamp(60px,9.5vw,150px)}
+@media (max-width:760px){.sec-top{grid-template-columns:1fr}}
+
+/* run of show */
+.ros{position:relative}
+.ros-line{position:absolute;left:0;right:0;top:46px;height:2px;background:var(--line)}
+.ros-line i{position:absolute;inset:0;background:var(--heat);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;position:relative}
+.slot{min-width:0}
+.slot .t{font-family:var(--display);font-size:clamp(40px,4vw,58px);line-height:1;color:var(--dim);transition:color .4s;font-variant-numeric:tabular-nums}
+.slot .pin{width:14px;height:14px;border-radius:50%;background:var(--ink);border:2px solid var(--line-2);margin:16px 0 22px;transition:background .4s,border-color .4s}
+.slot.on .t{color:var(--bone)}
+.slot.on .pin{background:var(--heat);border-color:var(--heat)}
+.slot h3{font-size:34px;margin-bottom:8px}
+.slot p{margin:0;color:var(--muted);font-size:18px;max-width:26ch}
+.ros-note{margin-top:40px;color:var(--dim)}
+@media (max-width:860px){
+  .ros-line{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .ros-line i{transform-origin:50% 0;transform:scaleY(var(--p,0))}
+  .slots{grid-template-columns:1fr;gap:34px;padding-left:36px}
+  .slot{position:relative}
+  .slot .pin{position:absolute;left:-36px;top:12px;margin:0}
+}
+
+/* night one */
+.showcase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,4vw,64px);align-items:start}
+.specs{border-top:1px solid var(--line);margin:0}
+.spec{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:center;padding:24px 4px;border-bottom:1px solid var(--line)}
+.spec dt{color:var(--muted)}
+.spec dd{margin:0;min-width:0}
+.spec dd b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(40px,4.6vw,64px);line-height:.95;text-transform:uppercase}
+.spec dd span{display:block;color:var(--muted);margin-top:4px;font-size:18px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line-2);border-radius:2px;color:var(--muted);white-space:nowrap}
+.tag.set{background:var(--heat);border-color:var(--heat);color:var(--ink)}
+.after-specs{padding-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.poster-wrap{position:sticky;top:calc(env(safe-area-inset-top,0px) + 90px)}
+/* the poster is the Night One waitlist ticket */
+.tix{display:grid;grid-template-columns:minmax(0,1fr) 140px;background:var(--bone);color:var(--ink);text-decoration:none;border-radius:10px;box-shadow:12px 14px 0 var(--heat);transform:rotate(-2deg);position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease);margin:10px 14px 0 0}
+.tix:hover{transform:rotate(0) translateY(-4px);box-shadow:16px 18px 0 var(--heat)}
+.tix::before,.tix::after{content:"";position:absolute;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--ink)}
+.tix::before{left:-15px}.tix::after{right:-15px}
+.tix-main{padding:28px 24px 28px 34px;min-width:0}
+.tix-main .mono{color:#4a2410;font-weight:600}
+.tix-main b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(64px,7.4vw,108px);line-height:.85;margin:14px 0 16px;text-transform:uppercase}
+.tix-main hr{border:0;border-top:3px solid var(--ink);margin:0 0 14px}
+.tix-main strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(38px,4vw,54px);line-height:1;color:var(--heat);text-transform:uppercase}
+.tix-main p{margin:10px 0 0;font-family:var(--display);font-size:22px;letter-spacing:.04em;text-transform:uppercase;color:#4a2410}
+.tix-stub{border-left:4px dotted var(--heat);padding:28px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.tix-stub b{font-family:var(--display);font-weight:400;font-size:62px;line-height:.9}
+.tix-stub i{display:block;height:120px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 6px,var(--ink) 6px 10px,transparent 10px 12px,var(--ink) 12px 13px,transparent 13px 17px)}
+@media (max-width:860px){.showcase{grid-template-columns:1fr}.poster-wrap{position:relative;top:0;order:-1}.spec{grid-template-columns:90px minmax(0,1fr)}.spec .tag{grid-column:2;justify-self:start}}
+@media (max-width:520px){.tix{grid-template-columns:1fr;transform:none;margin-right:12px}.tix-stub{border-left:0;border-top:4px dotted var(--heat);flex-direction:row;align-items:center}.tix-stub i{height:54px;width:130px}.tix::before,.tix::after{display:none}}
+
+/* about */
+.manifesto{background:var(--ink-2);border-block:1px solid var(--line)}
+.say{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(46px,7vw,116px);line-height:.95;margin:0;max-width:18ch;color:var(--bone)}
+.say em{font-style:normal;color:var(--heat)}
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--line);padding-top:32px}
+.creds div{min-width:0}
+.creds h3{font-size:40px;margin:12px 0 10px}
+.creds p{margin:0;color:var(--muted);max-width:36ch}
+.creds .mono{color:var(--heat)}
+@media (max-width:860px){.creds{grid-template-columns:1fr}}
+
+/* campuses */
+.duo{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--line)}
+.camp{position:relative;padding:clamp(32px,4vw,56px) clamp(4px,2vw,24px);overflow:hidden;min-width:0}
+.camp + .camp{border-left:1px solid var(--line);padding-left:clamp(20px,4vw,56px)}
+.camp .big{font-family:var(--display);font-size:clamp(120px,18vw,280px);line-height:.8;display:block;transition:color .4s,-webkit-text-stroke-color .4s;-webkit-text-stroke:1.5px #5a524b;color:transparent}
+.camp:hover .big{color:var(--heat);-webkit-text-stroke-color:var(--heat)}
+@media (hover:none){.camp .big{color:var(--ink-3);-webkit-text-stroke-color:#5a524b}}
+.camp h3{font-size:38px;margin:26px 0 8px}
+.camp p{margin:0;color:var(--muted);max-width:34ch}
+@media (max-width:700px){.duo{grid-template-columns:1fr}.camp + .camp{border-left:0;border-top:1px solid var(--line);padding-left:4px}}
+
+/* rules — the one place safety lives */
+.rules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rule{background:var(--ink);padding:32px 26px 36px;min-width:0;transition:background .3s}
+.rule:hover{background:var(--ink-2)}
+.rule b{font-family:var(--display);font-weight:400;font-size:clamp(64px,6.6vw,96px);line-height:.9;display:block;margin-top:8px}
+.rule p{margin:14px 0 0;color:var(--muted);font-size:18px}
+@media (max-width:860px){.rules{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.rules{grid-template-columns:1fr}}
+
+/* reps */
+.reps{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.reps h2{font-size:clamp(60px,8vw,126px)}
+.reps p.lede{color:var(--muted);margin:24px 0 0;max-width:44ch;font-size:21px}
+.perks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:12px}
+.perks li{display:flex;gap:14px;align-items:baseline;font-weight:600;font-size:20px}
+.perks li::before{content:"";flex:none;width:9px;height:9px;background:var(--heat);transform:rotate(45deg) translateY(-2px)}
+.code-card{background:var(--bone);color:var(--ink);border-radius:6px;padding:28px;position:relative;transform:rotate(1.5deg);transition:transform .5s var(--ease)}
+.code-card:hover{transform:rotate(0)}
+.code-card::before,.code-card::after{content:"";position:absolute;top:62%;width:26px;height:26px;border-radius:50%;background:var(--ink-2)}
+.code-card::before{left:-13px}.code-card::after{right:-13px}
+.code-card .row{display:flex;justify-content:space-between;gap:12px;color:var(--card-ink)}
+.code-card .code{font-family:var(--display);font-size:clamp(56px,6.6vw,92px);line-height:.9;margin:16px 0 22px;word-break:break-all;text-transform:uppercase}
+.code-card .code span{color:var(--heat)}
+.code-card hr{border:0;border-top:2px dashed var(--card-rule);margin:26px 0 20px}
+.code-card label{display:block;margin-bottom:8px;color:var(--card-ink)}
+.code-card input{width:100%;min-width:0;background:transparent;border:0;border-bottom:2px solid var(--ink);font-family:var(--body);font-size:22px;font-weight:600;padding:8px 0;color:var(--ink)}
+.code-card input::placeholder{color:#8a8075}
+.code-card input:focus{outline:none;border-color:var(--heat)}
+.code-card .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.code-card .btn-hot:hover{background:var(--ink);color:var(--bone)}
+.code-card .btn-line{border-color:var(--ink);color:var(--ink)}
+.code-card .btn-line:hover{background:var(--ink);color:var(--bone)}
+.code-card .note{min-height:1.4em;margin:12px 0 0;color:var(--card-ink);font-size:17px}
+@media (max-width:860px){.reps{grid-template-columns:1fr}.code-card{transform:none}}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:60px 1fr auto;gap:16px;align-items:center;padding:24px 4px;font-size:clamp(22px,2.2vw,27px);font-weight:600;transition:color .25s}
+.faq summary:hover{color:var(--heat)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .mono{color:var(--dim)}
+.faq summary::after{content:"";width:16px;height:16px;background:linear-gradient(var(--heat),var(--heat)) center/100% 2px no-repeat,linear-gradient(var(--heat),var(--heat)) center/2px 100% no-repeat;transition:transform .35s var(--ease)}
+.faq details[open] summary::after{transform:rotate(135deg)}
+.faq p{margin:0 0 28px 80px;color:var(--muted);max-width:62ch}
+.faq p a{color:var(--heat)}
+@media (max-width:600px){.faq summary{grid-template-columns:1fr auto}.faq summary .mono{display:none}.faq p{margin-left:4px}}
+
+/* follow */
+.signup{position:relative;overflow:hidden}
+.signup h2{font-size:clamp(88px,16vw,270px);line-height:.8}
+.signup h2 .o{-webkit-text-stroke:2px var(--bone);color:transparent}
+.sg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:40px;align-items:end;margin-top:40px}
+.sg-grid p{margin:0;color:var(--muted);max-width:40ch;font-size:21px}
+.handle{display:flex;align-items:stretch;border:1px solid var(--line-2);border-radius:3px;background:var(--ink-2)}
+.handle .h{flex:1;min-width:0;padding:16px 20px;font-family:var(--display);font-size:clamp(34px,3.4vw,46px);line-height:1;user-select:all;align-self:center;overflow-wrap:anywhere}
+.handle button{background:transparent;border:0;border-left:1px solid var(--line-2);color:var(--muted);padding:0 18px;cursor:pointer;font:inherit;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.handle button:hover{color:var(--bone)}
+.follow-acts{display:grid;gap:12px}
+.follow-acts .btn{justify-content:space-between}
+.follow-acts .note{min-height:1.4em;margin:0;color:var(--muted);font-size:17px}
+@media (max-width:860px){.sg-grid{grid-template-columns:1fr}}
+
+/* orange sections — same inked treatment as the hero */
+.orange{background:var(--heat);color:var(--ink)}
+.orange .hot{color:var(--bone)}
+.orange .mono.hot,.orange .sec-top .mono{color:var(--ink)}
+.orange .rules{background:rgba(8,8,8,.28);border-color:var(--ink)}
+.orange .rule{background:var(--heat)}
+.orange .rule:hover{background:var(--ink);color:var(--bone)}
+.orange .rule:hover .mono.hot{color:var(--heat)}
+.orange .rule p{color:rgba(8,8,8,.75)}
+.orange .rule:hover p{color:var(--muted)}
+.orange.signup h2 .o{-webkit-text-stroke-color:var(--ink)}
+.orange .sg-grid p{color:rgba(8,8,8,.78)}
+.orange .handle{background:transparent;border:2px solid var(--ink)}
+.orange .handle button{border-left:2px solid var(--ink);color:var(--ink);font-weight:600}
+.orange .handle button:hover{background:var(--ink);color:var(--bone)}
+.orange .btn-hot{background:var(--ink);color:var(--bone)}
+.orange .btn-hot:hover{background:var(--bone);color:var(--ink)}
+.orange .btn-line{border:2px solid var(--ink);color:var(--ink)}
+.orange .btn-line:hover{background:var(--ink);color:var(--bone)}
+.orange .follow-acts .note{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;color:var(--muted);font-size:17px}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot a{text-decoration:none}.foot a:hover{color:var(--heat)}
+.giant{font-family:var(--display);text-transform:uppercase;font-size:clamp(70px,20vw,330px);line-height:.78;margin-top:40px;color:var(--ink-3);white-space:nowrap}
+.giant span{color:#2a1a10}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .mark .ch,.sun{transform:none}
+}
+</style>
+</head>
+<body>
+
+<a class="waitbar" href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">
+  <div class="wrap wb">
+    <span class="wb-no"><small>NO.</small>001</span>
+    <span class="wb-main"><span class="wb-title">Night One <em>· The Waitlist</em></span><span class="wb-sub">Date + venue TBA · Free to join</span></span>
+    <span class="wb-code" aria-hidden="true"></span>
+    <span class="wb-cta">Join the waitlist <span class="arr">→</span></span>
+  </div>
+</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top">After<span>Class</span>AZ</a>
+    <nav class="links" aria-label="Main">
+      <a href="#night">The night</a>
+      <a href="#first">Night One</a>
+      <a href="#about">About</a>
+      <a href="#rules">Rules</a>
+      <a href="#reps">Reps</a>
+    </nav>
+    <div class="nav-right">
+      <span class="clock mono" id="clock">PHX <b>--:--</b></span>
+      <a class="nav-ig" href="https://instagram.com/afterclassaz" target="_blank" rel="noopener" aria-label="AfterClassAZ on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a class="btn btn-hot" href="https://posh.vip/g/afterclass" target="_blank" rel="noopener">Tickets</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="AfterClassAZ">
+    <div class="sky" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-meta mono">
+        <span><i class="dot"></i>Class dismissed · Phoenix, Arizona</span>
+        <a href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Night One · Waitlist open →</a>
+      </div>
+      <h1 class="mark" id="mark" aria-label="AfterClass AZ">
+        <span class="row r1" aria-hidden="true">AFTER</span>
+        <span class="row r2" aria-hidden="true">CLASS<span class="az-gap">&nbsp;</span>AZ</span>
+      </h1>
+      <div class="hero-body">
+        <div class="spacer"></div>
+        <div>
+          <p>College nights for <em>ASU</em> and <em>GCU</em>. Real DJs, a real sound system, licensed security, and a crowd that actually came to go out.</p>
+          <div class="ctas">
+            <a class="btn btn-hot" href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Join the waitlist <span class="arr">→</span></a>
+            <a class="btn btn-line" href="https://instagram.com/afterclassaz" target="_blank" rel="noopener">Follow @afterclassaz</a>
+          </div>
+        </div>
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+            <text font-family="JetBrains Mono, monospace" font-size="14.5" letter-spacing="4" fill="#080808"><textPath href="#circ">ASU × GCU · 18+ ENTRY · PHOENIX AFTER DARK · </textPath></text>
+          </svg>
+          <div class="core">18<br>+</div>
+        </div>
+      </div>
+    </div>
+    <div class="strip" aria-hidden="true">
+      <div class="track">
+        <span>Night One waitlist open <i></i> Phoenix after dark <i></i> Live DJs <i></i> Sun Devils <i></i> Lopes <i></i> 18+ entry <i></i></span>
+        <span>Night One waitlist open <i></i> Phoenix after dark <i></i> Live DJs <i></i> Sun Devils <i></i> Lopes <i></i> 18+ entry <i></i></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="night">
+    <div class="wrap">
+      <div class="sec-top">
+        <span class="mono">How a night runs</span>
+        <h2>Doors to <span class="hot">2 AM.</span></h2>
+      </div>
+      <div class="ros" id="ros">
+        <div class="ros-line"><i></i></div>
+        <div class="slots">
+          <div class="slot"><div class="t">9:00</div><div class="pin"></div><h3>Doors</h3><p>ID check, wristbands, straight onto the floor. Arrive early, the line moves fast.</p></div>
+          <div class="slot"><div class="t">9:30</div><div class="pin"></div><h3>Openers</h3><p>Local and student DJs warm the room on a real club system.</p></div>
+          <div class="slot"><div class="t">11:30</div><div class="pin"></div><h3>Headliner</h3><p>Lights all the way up. This is the part you'll be posting.</p></div>
+          <div class="slot"><div class="t">1:30</div><div class="pin"></div><h3>Last call</h3><p>Bar closes for 21+ guests. Water stays free all night.</p></div>
+          <div class="slot"><div class="t">2:00</div><div class="pin"></div><h3>Lights up</h3><p>Night ends at 2 AM. Staffed pickup zone out front, so everyone gets home.</p></div>
+        </div>
+      </div>
+      <p class="ros-note mono">Planned times. Each event page will list the exact schedule.</p>
+    </div>
+  </section>
+
+  <section id="first" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-top">
+        <span class="mono">Night One · No. 001</span>
+        <h2>First night <span class="hot">loading.</span></h2>
+      </div>
+      <div class="showcase">
+        <div>
+          <dl class="specs">
+            <div class="spec"><dt class="mono">Date</dt><dd><b>TBA</b><span>Waitlist hears it first</span></dd><span class="tag">In the works</span></div>
+            <div class="spec"><dt class="mono">Venue</dt><dd><b>TBA</b><span>A short ride from both campuses</span></dd><span class="tag">In the works</span></div>
+            <div class="spec"><dt class="mono">Entry</dt><dd><b>18+</b><span>21+ to drink, with a wristband</span></dd><span class="tag set">Set</span></div>
+            <div class="spec"><dt class="mono">Waitlist</dt><dd><b>Free</b><span>First access to tickets on Posh</span></dd><span class="tag set">Open</span></div>
+          </dl>
+          <div class="after-specs">
+            <a class="btn btn-hot" href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Join the waitlist <span class="arr">→</span></a>
+            <a class="btn btn-line" href="https://posh.vip/g/afterclass" target="_blank" rel="noopener">AfterClass on Posh</a>
+          </div>
+        </div>
+        <div class="poster-wrap">
+          <a class="tix" href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener" aria-label="Join the Night One waitlist on Posh">
+            <div class="tix-main">
+              <span class="mono">Admit one · ASU × GCU</span>
+              <b>Night One</b>
+              <hr>
+              <strong>The Waitlist</strong>
+              <p>Date + venue TBA · Phoenix, AZ</p>
+            </div>
+            <div class="tix-stub">
+              <div><span class="mono" style="font-weight:600">No.</span><br><b>001</b></div>
+              <i aria-hidden="true"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto" id="about">
+    <div class="wrap">
+      <span class="mono hot">About</span>
+      <p class="say" style="margin-top:24px">Started by students who were tired of <em>unsafe</em> parties and hosts who only cared about the <em>money.</em> So we're building the night we actually <em>wanted.</em></p>
+      <div class="creds">
+        <div><span class="mono">Authentic</span><h3>Run by students</h3><p>Not a promoter chasing a payout. Every decision starts with the people in the room, not the ticket count.</p></div>
+        <div><span class="mono">Inclusive</span><h3>Every major, every year</h3><p>Both campuses, one door. Come with your group or come solo and leave with a new one.</p></div>
+        <div><span class="mono">Production</span><h3>Sound done right</h3><p>Audio run by a working front-of-house engineer. Full club system, not a party speaker in the corner.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-top">
+        <span class="mono">Two campuses</span>
+        <h2>One <span class="hot">night.</span></h2>
+      </div>
+      <div class="duo">
+        <div class="camp"><span class="big">ASU</span><h3>Sun Devils · Tempe</h3><p>We pick venues so the ride from campus stays short and cheap.</p></div>
+        <div class="camp"><span class="big">GCU</span><h3>Lopes · West Phoenix</h3><p>Same tickets, same door, same night as everyone else.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" class="orange">
+    <div class="wrap">
+      <div class="sec-top">
+        <span class="mono">Safety first</span>
+        <h2>House <span class="hot">rules.</span></h2>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="mono hot">Entry</span><b>18+</b><p>Valid physical ID at the door, every time. Photos of IDs don't count.</p></div>
+        <div class="rule"><span class="mono hot">Bar</span><b>21+</b><p>Wristbands at check-in. Only banded guests are served. Water is free all night.</p></div>
+        <div class="rule"><span class="mono hot">Staff</span><b>On site</b><p>Licensed security from doors to close. Find any staff shirt for help.</p></div>
+        <div class="rule"><span class="mono hot">Exit</span><b>Ride</b><p>Book your ride before you arrive. Never drive impaired.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reps" class="manifesto">
+    <div class="wrap">
+      <div class="reps">
+        <div>
+          <span class="mono hot">Campus rep program</span>
+          <h2 style="margin-top:18px">Your code.<br>Your <span class="hot">cut.</span></h2>
+          <p class="lede">Get a personal promo code on Posh and earn on every ticket sold with it. You bring the people, we run the night.</p>
+          <ul class="perks">
+            <li>Payout on every ticket sold with your code</li>
+            <li>Free entry to the events you promote</li>
+            <li>Story-ready content kit for each drop</li>
+          </ul>
+        </div>
+        <div class="code-card">
+          <div class="row mono"><span>AfterClassAZ</span><span>Promo code</span></div>
+          <div class="code" id="code">YOUR<span>NAME</span></div>
+          <div class="row mono"><span>Valid at checkout</span><span>Every event</span></div>
+          <hr>
+          <label class="mono" for="rep-name">Type your name to preview your code</label>
+          <input id="rep-name" type="text" maxlength="12" autocomplete="given-name" placeholder="Your first name">
+          <div class="acts">
+            <a class="btn btn-hot" href="https://ig.me/m/afterclassaz" target="_blank" rel="noopener">Apply in a DM <span class="arr">→</span></a>
+            <button class="btn btn-line" type="button" id="copy-code">Copy code</button>
+          </div>
+          <p class="note" id="rep-note" aria-live="polite">Send your code and campus to @afterclassaz to apply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-top">
+        <span class="mono">Questions</span>
+        <h2>Before you <span class="hot">go.</span></h2>
+      </div>
+      <div class="faq">
+        <details open><summary><span class="mono">Q.01</span>When is the first event?</summary><p>We're locking in the venue and date for Night One now. <a href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Join the waitlist on Posh</a> to hear first, and follow @afterclassaz on Instagram.</p></details>
+        <details><summary><span class="mono">Q.02</span>Do I need to be a student?</summary><p>Our nights are built for ASU and GCU students, but anyone 18 or older with a valid physical ID can come.</p></details>
+        <details><summary><span class="mono">Q.03</span>Where will tickets be sold?</summary><p>Every ticket is sold on <a href="https://posh.vip/g/afterclass" target="_blank" rel="noopener">our Posh page</a>. Prices go up in tiers as each event fills, so buy early.</p></details>
+        <details><summary><span class="mono">Q.04</span>Will there be VIP tickets?</summary><p>Yes. Each event's Posh page will list what VIP includes when tickets go live.</p></details>
+        <details><summary><span class="mono">Q.05</span>I DJ. How do I get booked?</summary><p>DM @afterclassaz your mix link and a short bio. We book local and student DJs for every event.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="signup orange" id="follow">
+    <div class="wrap">
+      <span class="mono hot">Stay in the loop</span>
+      <h2 style="margin-top:20px">Don't miss<br><span class="o">the</span> <span class="hot">drop.</span></h2>
+      <div class="sg-grid">
+        <p>Join the Night One waitlist for first access to tickets. Dates, lineups and presale codes also go up on Instagram first, so turn on post notifications.</p>
+        <div class="follow-acts">
+          <a class="btn btn-hot" href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Join the Night One waitlist <span class="arr">→</span></a>
+          <div class="handle"><span class="h" id="handle">@afterclassaz</span><button type="button" id="copy-handle">Copy</button></div>
+          <a class="btn btn-line" href="https://instagram.com/afterclassaz" target="_blank" rel="noopener">Follow on Instagram <span class="arr">→</span></a>
+          <p class="note" id="handle-note" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span>© 2026 AfterClassAZ · Phoenix, Arizona</span>
+      <nav aria-label="Footer">
+        <a href="https://instagram.com/afterclassaz" target="_blank" rel="noopener">Instagram @afterclassaz</a>
+        <a href="https://posh.vip/g/afterclass" target="_blank" rel="noopener">Posh</a>
+        <a href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Night One waitlist</a>
+        <a href="#rules">Safety</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <div class="giant" aria-hidden="true">After<span>Class</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Split wordmark into letters for the rise-in
+  var i=0;
+  document.querySelectorAll('#mark .row').forEach(function(row){
+    var nodes=[].slice.call(row.childNodes); row.textContent='';
+    nodes.forEach(function(n){
+      if(n.nodeType===3){
+        n.textContent.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.setProperty('--i',i++);row.appendChild(s);});
+      } else { row.appendChild(n); }
+    });
+  });
+  var r2=document.querySelectorAll('#mark .r2 .ch'); if(r2.length>=2){r2[r2.length-1].classList.add('az');r2[r2.length-2].classList.add('az');}
+  var gap=document.querySelector('.az-gap'); if(gap){gap.style.display='inline-block';gap.style.width='.12em';}
+
+  // Phoenix clock
+  var clock=document.getElementById('clock');
+  function pad(n){return (n<10?'0':'')+n}
+  function tick(){
+    try{
+      var p={};new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',hour:'numeric',minute:'2-digit',hour12:false}).formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+      var h=(+p.hour)%24,m=+p.minute;
+      clock.innerHTML='PHX <b>'+(h%12||12)+':'+pad(m)+' '+(h<12?'AM':'PM')+'</b>';
+    }catch(e){}
+  }
+  tick(); setInterval(tick,15000);
+
+  // Run-of-show line fills as you scroll
+  var ros=document.getElementById('ros'),slots=[].slice.call(document.querySelectorAll('.slot'));
+  function onScroll(){
+    var r=ros.getBoundingClientRect(),vh=innerHeight;
+    var p=Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.5)));
+    ros.style.setProperty('--p',p);
+    slots.forEach(function(s,n){s.classList.toggle('on',p>0 && p>=n/(slots.length-1)-0.02)});
+  }
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+  // Copy helper
+  function copy(text,note,ok,el){
+    function fallback(){
+      try{var rg=document.createRange();rg.selectNodeContents(el);var sel=getSelection();sel.removeAllRanges();sel.addRange(rg);}catch(e){}
+      note.textContent='Selected. Copy it with your keyboard or long-press.';
+    }
+    try{
+      navigator.clipboard.writeText(text).then(function(){note.textContent=ok},fallback);
+    }catch(e){fallback()}
+  }
+
+  // Rep code preview
+  var rn=document.getElementById('rep-name'),code=document.getElementById('code'),repNote=document.getElementById('rep-note');
+  function codeText(){var v=rn.value.replace(/[^a-z0-9]/gi,'').toUpperCase().slice(0,12);return v?v+'AZ':''}
+  rn.addEventListener('input',function(){
+    var v=rn.value.replace(/[^a-z0-9]/gi,'').toUpperCase().slice(0,12);
+    code.innerHTML=v?v+'<span>AZ</span>':'YOUR<span>NAME</span>';
+  });
+  document.getElementById('copy-code').addEventListener('click',function(){
+    var c=codeText();
+    if(!c){repNote.textContent='Type your first name first to make your code.';rn.focus();return;}
+    copy(c,repNote,'Copied '+c+'. Paste it in your DM to @afterclassaz.',code);
+  });
+
+  // Handle copy
+  var handle=document.getElementById('handle'),hn=document.getElementById('handle-note');
+  document.getElementById('copy-handle').addEventListener('click',function(){
+    copy('@afterclassaz',hn,'Copied @afterclassaz.',handle);
+  });
+})();
+</script>
+
+</body>
+</html>
