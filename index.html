@@ -302,6 +302,39 @@ section{padding-block:clamp(80px,10vw,140px)}
 .follow-acts .note{min-height:1.4em;margin:0;color:var(--muted);font-size:17px}
 @media (max-width:860px){.sg-grid{grid-template-columns:1fr}}
 
+/* rides — Fetii x AfterClass */
+.rides{background:var(--ink-2);border-bottom:1px solid var(--line);padding-block:clamp(64px,8vw,110px)}
+.ride-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.rides h2{font-size:clamp(60px,8vw,124px);margin-top:16px}
+.rides .lede{color:var(--muted);font-size:21px;margin:20px 0 0;max-width:42ch}
+.ride-code{display:flex;align-items:stretch;margin-top:28px;max-width:460px;background:var(--bone);color:var(--ink);border-radius:6px;position:relative}
+.ride-code::before,.ride-code::after{content:"";position:absolute;top:50%;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--ink-2)}
+.ride-code::before{left:-11px}.ride-code::after{right:-11px}
+.ride-code .rc{flex:1;min-width:0;padding:14px 22px 12px 26px}
+.ride-code .rc .mono{color:var(--card-ink);font-weight:600}
+.ride-code .rc-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.ride-code .fetii-logo{height:42px;width:auto;display:block;flex:none}
+.ride-code .rc-top .mono{padding-left:12px;border-left:2px solid var(--card-rule)}
+.ride-code b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(44px,4.4vw,60px);line-height:.95;user-select:all}
+.ride-code button{border:0;border-left:3px dotted var(--heat);background:transparent;color:var(--ink);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:0 24px;cursor:pointer;border-radius:0 6px 6px 0}
+.ride-code button:hover{background:var(--ink);color:var(--bone)}
+.rides .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.rides .note{min-height:1.4em;margin:12px 0 0;color:var(--muted);font-size:17px}
+.ride-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.ride-steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;align-items:start;padding:20px 0;border-bottom:1px solid var(--line)}
+.ride-steps .n{width:52px;height:52px;border-radius:50%;background:var(--heat);color:var(--ink);display:grid;place-items:center;font-family:var(--display);font-size:34px;line-height:1;padding-top:3px}
+.ride-steps h3{font-size:clamp(28px,2.6vw,36px);line-height:1}
+.ride-steps h3 em{font-style:normal;color:var(--heat)}
+.ride-steps p{margin:6px 0 0;color:var(--muted);font-size:17px}
+.ride-fine{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(40px,5vw,64px)}
+.ride-fine div{background:var(--ink-2);padding:22px 22px 24px;min-width:0}
+.ride-fine div:last-child{background:var(--heat);color:var(--ink)}
+.ride-fine h4{font-size:28px;color:var(--heat)}
+.ride-fine div:last-child h4{color:var(--ink)}
+.ride-fine p{margin:8px 0 0;color:var(--muted);font-size:17px}
+.ride-fine div:last-child p{color:rgba(8,8,8,.8)}
+@media (max-width:860px){.ride-grid{grid-template-columns:1fr}.ride-fine{grid-template-columns:1fr}}
+
 /* orange sections — same inked treatment as the hero */
 .orange{background:var(--heat);color:var(--ink)}
 .orange .hot{color:var(--bone)}
@@ -350,8 +383,8 @@ footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
   <div class="wrap">
     <a class="wordmark" href="#top">After<span>Class</span>AZ</a>
     <nav class="links" aria-label="Main">
-      <a href="#night">The night</a>
       <a href="#first">Night One</a>
+      <a href="#rides">Free ride</a>
       <a href="#about">About</a>
       <a href="#rules">Rules</a>
       <a href="#reps">Reps</a>
@@ -402,23 +435,35 @@ footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
     </div>
   </section>
 
-  <section id="night">
+  <section id="rides" class="rides">
     <div class="wrap">
-      <div class="sec-top">
-        <span class="mono">How a night runs</span>
-        <h2>Doors to <span class="hot">2 AM.</span></h2>
-      </div>
-      <div class="ros" id="ros">
-        <div class="ros-line"><i></i></div>
-        <div class="slots">
-          <div class="slot"><div class="t">9:00</div><div class="pin"></div><h3>Doors</h3><p>ID check, wristbands, straight onto the floor. Arrive early, the line moves fast.</p></div>
-          <div class="slot"><div class="t">9:30</div><div class="pin"></div><h3>Openers</h3><p>Local and student DJs warm the room on a real club system.</p></div>
-          <div class="slot"><div class="t">11:30</div><div class="pin"></div><h3>Headliner</h3><p>Lights all the way up. This is the part you'll be posting.</p></div>
-          <div class="slot"><div class="t">1:30</div><div class="pin"></div><h3>Last call</h3><p>Bar closes for 21+ guests. Water stays free all night.</p></div>
-          <div class="slot"><div class="t">2:00</div><div class="pin"></div><h3>Lights up</h3><p>Night ends at 2 AM. Staffed pickup zone out front, so everyone gets home.</p></div>
+      <div class="ride-grid">
+        <div>
+          <span class="mono hot">Getting there · Fetii × AfterClass</span>
+          <h2>Your first ride is <span class="hot">free.</span></h2>
+          <p class="lede">New Fetii riders get their first ride free with our promo code. Everyone in your group adds it on their own account.</p>
+          <div class="ride-code">
+            <div class="rc"><div class="rc-top"><img class="fetii-logo" src="data:image/png;base64,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" alt="Fetii" width="240" height="143"><span class="mono">Promo code</span></div><b id="ride-code">AFTERCLASS</b></div>
+            <button type="button" id="copy-ride">Copy</button>
+          </div>
+          <div class="ctas">
+            <a class="btn btn-hot" id="get-fetii" href="https://www.instagram.com/fetii" target="_blank" rel="noopener">Copy code &amp; get Fetii <span class="arr">→</span></a>
+          </div>
+          <p class="note" id="ride-note" aria-live="polite"></p>
         </div>
+        <ol class="ride-steps">
+          <li><span class="n">1</span><div><h3>Download the Fetii app</h3></div></li>
+          <li><span class="n">2</span><div><h3>Enter code <em>AFTERCLASS</em></h3><p>Add it in the “Promo Codes” menu tab. Each rider enters it on their own account to get the discount.</p></div></li>
+          <li><span class="n">3</span><div><h3>Ride now or preschedule</h3></div></li>
+          <li><span class="n">4</span><div><h3>Check in</h3><p>Scan the QR code in the van with your Fetii app.</p></div></li>
+          <li><span class="n">5</span><div><h3>Arrive in style</h3></div></li>
+        </ol>
       </div>
-      <p class="ros-note mono">Planned times. Each event page will list the exact schedule.</p>
+      <div class="ride-fine">
+        <div><h4>One free ride per account</h4><p>Everyone riding in the Fetii enters the code in their own app to get the discount.</p></div>
+        <div><h4>Check in for yourself</h4><p>If you pay for 5 friends, they ride at full price. For everyone to ride free, each person checks in on their own account with the code added.</p></div>
+        <div><h4>Not free? Still enter it</h4><p>Paying for friends, or not a new rider? Add the code anyway so your ride counts for AfterClassAZ.</p></div>
+      </div>
     </div>
   </section>
 
@@ -590,6 +635,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
         <a href="https://instagram.com/afterclassaz" target="_blank" rel="noopener">Instagram @afterclassaz</a>
         <a href="https://posh.vip/g/afterclass" target="_blank" rel="noopener">Posh</a>
         <a href="https://posh.vip/e/afterclass-night-one-waitlist" target="_blank" rel="noopener">Night One waitlist</a>
+        <a href="https://www.instagram.com/fetii" target="_blank" rel="noopener">Fetii</a>
         <a href="#rules">Safety</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -633,7 +679,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
     ros.style.setProperty('--p',p);
     slots.forEach(function(s,n){s.classList.toggle('on',p>0 && p>=n/(slots.length-1)-0.02)});
   }
-  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+  if(ros){addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();}
 
   // Copy helper
   function copy(text,note,ok,el){
@@ -661,6 +707,16 @@ footer{border-top:1px solid var(--line);padding-block:40px 28px;overflow:hidden}
     try{
       navigator.clipboard.writeText(msg).then(function(){repNote.textContent='Intro copied. Paste it in the DM and hit send.'},function(){repNote.textContent='DM opened. Tell us your name and school.'});
     }catch(e){repNote.textContent='DM opened. Tell us your name and school.'}
+  });
+
+  // Fetii code copy
+  var rideCode=document.getElementById('ride-code'),rideNote=document.getElementById('ride-note');
+  document.getElementById('copy-ride').addEventListener('click',function(){
+    copy('AFTERCLASS',rideNote,'Copied AFTERCLASS. Paste it in Fetii under Promo Codes.',rideCode);
+  });
+  // One tap: copy the code, then the link opens Fetii
+  document.getElementById('get-fetii').addEventListener('click',function(){
+    try{navigator.clipboard.writeText('AFTERCLASS').then(function(){rideNote.textContent='AFTERCLASS copied. In Fetii, open the menu → Promo Codes and paste it.'},function(){})}catch(e){}
   });
 
   // Handle copy
